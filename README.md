@@ -1,5 +1,4 @@
 # Preguntas_y_respuesta_Java
-# Preguntas_y_respuesta_Java
 
 ###Resumen
 
