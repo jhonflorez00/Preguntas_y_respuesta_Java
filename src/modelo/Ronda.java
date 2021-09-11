@@ -8,6 +8,10 @@ public class Ronda extends Pregunta {
         this.idRonda = idRonda;
     }
 
+    public Ronda() {
+
+    }
+
 
     public int getIdRonda() {
         return idRonda;

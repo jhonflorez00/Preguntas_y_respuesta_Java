@@ -1,6 +1,7 @@
 package vista;
 
 import comtrolador.PreguntaService;
+import comtrolador.RondaService;
 import comtrolador.UserService;
 
 import java.util.Scanner;
@@ -26,6 +27,7 @@ public class Menu {
                     UserService.crearUser();
                     break;
                 case 2:
+                    RondaService.rondaN();
 
                     break;
                 case 3:
