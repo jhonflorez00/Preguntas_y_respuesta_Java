@@ -1,41 +1,27 @@
 package comtrolador;
 
-
-import modelo.Ronda;
 import vista.Menu;
-
+import vista.MenuRonda;
+import vista.MenuUser;
 import java.util.Scanner;
 
 public class RondaService  {
 
+    public static void selectCategariaYPregunta(int rondaN, int premio){
 
-    public static void rondaInicial(int rondaN, int premio){
-
-            Scanner sc=new Scanner(System.in);
-            System.out.println("***********************************************************");
-            System.out.println("**             Ronda no:"+rondaN+"                                **");
-            System.out.println("**             PREMIO :"+premio+" $");
-            System.out.println("************************************************************");
-            int valorRandon = (int) Math.floor(Math.random()*5+1);//busamos un numero rando del 1 al 5
-            PreguntaDao.listarPregunta(rondaN++,valorRandon);
+        int valorRandon = (int) Math.floor(Math.random()*5+1);//busamos un numero rando del 1 al 5
+        PreguntaDao.listarPregunta(rondaN++,valorRandon);//pasamos el mumero de la ronda y el valor ramdon para elejir la prgunta
     }
 
-    public static void escojerPregunta(Ronda ronda){
-            System.out.println("**              PREGUNTA :"+ronda.getIdRonda()+"                                 **");
-        System.out.println("\n************************************************************");
-        System.out.println("\n"+ronda.getPregunta()+"\n");//muestar las preguntas y sus opciones
-        System.out.println(" "+ronda.getOpciones()+"");
+    public static void ValidarRespuesta(int respRonda, int repVerdadera, int idRonda){
 
         Scanner sc=new Scanner(System.in);
-        int respRonda= sc.nextInt();//lee nos la respuesta en respRonda
         /**con esta validamos  si la respuesta es igual a la traida
          * de la base de datas*/
-
-        if (respRonda==ronda.getRepuesta()){
-            int nexRonda=ronda.getIdRonda();
+        if (respRonda==repVerdadera){
+            int nexRonda=idRonda;
             int premios = 100000;
-            nexRonda++;
-            switch (nexRonda-1){
+            switch (nexRonda){
                 case 1:
                     premios=premios;
                     break;
@@ -51,26 +37,26 @@ public class RondaService  {
                 case 5:
                     premios=premios*16;
                     System.out.println(" ***********************************************************\n      FELICITACIONES Ganastes el juego \n***********************************************************");
-                    UserService.crearUser(premios);
-                    Menu.mostarMenu();
+                    MenuUser.capturaDatosUser(premios);
                     break;
             }
-            System.out.println(" ***********************************************************\n      FELICITACIONES RESPUESTA CORRECTA  \n***********************************************************");
-            System.out.println("1) SALIR DEL JUEGO\n 2) SEGIR JUEGO");
-            int salirJue=sc.nextInt();
-            if (salirJue==1){
-                UserService.crearUser(premios);
-                Menu.mostarMenu();
-            }
-            RondaService.rondaInicial(nexRonda, premios);
-                }else {
+            nexRonda++;//sumamos uno mas para que se pase a la otra ronda
+            MenuRonda.mensajeSiquiereSalirDElJuego(nexRonda,premios);
+        }else {
             System.out.println("PERDISTE GRACIAS POR PARTICIPAR ");
-            int premios=0;
-            UserService.crearUser(premios);
-            Menu.mostarMenu();
+            int premioPerdedor=0;
+            MenuUser.capturaDatosUser(premioPerdedor);
         }
     }
 
-
-
+    public static void ContinuarJuego(int opcionUser, int nexRonda, int premios){
+        //si la respesta es sergir 1
+        if (opcionUser==1){
+            MenuRonda.menuRonda(nexRonda,premios);
+        }
+        else {
+            MenuUser.capturaDatosUser(premios);
+            Menu.mostarMenu();
+        }
+    }
 }

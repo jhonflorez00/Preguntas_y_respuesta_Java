@@ -3,13 +3,12 @@ package comtrolador;
 import modelo.Conexion;
 import modelo.Pregunta;
 import modelo.Ronda;
-
-
+import vista.MenuPregunta;
+import vista.MenuRonda;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Random;
 
 public class PreguntaDao {
     public  static  void  crearPreguntaDB(Pregunta pregunta){
@@ -33,27 +32,26 @@ public class PreguntaDao {
         }catch (SQLException e){
             System.out.println(e);
         }
-        PreguntaService.crearPregunta();
+        MenuPregunta.capturaOtraPregunta();
     }
 
     public static void  listarPregunta(int numeroRonda, int valorRandon){
+
         Conexion db_connect =new Conexion();
         PreparedStatement ps=null;
         ResultSet rs=null;
-
-        try(Connection conexion = db_connect.get_connection()){
+        try(Connection conexion = db_connect.get_connection()){ //traemos las preguntas de la categoria que pertenece ala ronda
             String query="SELECT * FROM pregunta WHERE categoria="+numeroRonda+"";
             ps=conexion.prepareStatement(query);
             rs= ps.executeQuery();
-
-            //iesntras rs tenga datos
-            int contar=1;
+            int contar=1;//utilizamos como indice de para encontrar la pregunta
             /**Realiza el recorrido del la consulta SQL y toma la posición
              * del número aleatorio  y carga los datos a la clase Ronda*/
-
+            // verificamos que rs tenga datos
             while (rs.next() ){
+                //si el rando es igual  al indice de la pregunta ejecuta
                 if (contar==valorRandon){
-                    System.out.println("            Numero randon:"+valorRandon+"");
+                    System.out.println("**           Numero randon:"+valorRandon+"                         **");
                     Ronda ronda=new Ronda();
                     ronda.setIdRonda(numeroRonda);
                     ronda.setPregunta(rs.getString("pregunta"));
@@ -61,18 +59,13 @@ public class PreguntaDao {
                     ronda.setRepuesta(rs.getInt("respuesta"));
                     ronda.setRepuesta(rs.getInt("respuesta"));
                     ronda.setCategoria(rs.getInt("categoria"));
-                    RondaService.escojerPregunta(ronda);
+                    MenuRonda.mostarPregunRamdon(ronda);
                 }
                 contar++;
             }
-
         }catch (SQLException e){
             System.out.println("No se pudieron traer la pregunta");
             System.out.println(e);
         }
     }
-
-
-
-
 }

@@ -1,10 +1,10 @@
 package modelo;
 
 public class User {
-    int id;
-    String nombre;
-    int cc;
-    int acomulado;
+    private int id;
+    private String nombre;
+    private int cc;
+    private int acomulado;
 
 
 

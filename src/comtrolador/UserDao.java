@@ -2,7 +2,6 @@ package comtrolador;
 
 import modelo.User;
 import modelo.Conexion;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

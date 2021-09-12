@@ -2,7 +2,7 @@ package modelo;
 
 
 public class Ronda extends Pregunta {
-    int idRonda;
+    private int idRonda;
 
     public Ronda(int idRonda) {
         this.idRonda = idRonda;
@@ -11,7 +11,6 @@ public class Ronda extends Pregunta {
     public Ronda() {
 
     }
-
 
     public int getIdRonda() {
         return idRonda;
