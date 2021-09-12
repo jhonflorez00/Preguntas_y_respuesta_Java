@@ -63,7 +63,7 @@ public class RondaService  {
                 Menu.mostarMenu();
             }
             RondaService.rondaInicial(nexRonda, premios);
-            }else {
+                }else {
             System.out.println("PERDISTE GRACIAS POR PARTICIPAR ");
             int premios=0;
             UserService.crearUser(premios);
