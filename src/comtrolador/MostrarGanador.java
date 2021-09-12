@@ -10,6 +10,6 @@ public class MostrarGanador {
 
         Premio premio=premios.stream().max((a,b)->a.getResultadoPremio().compareTo(b.getResultadoPremio())).get();//comparar la consult
         System.out.println("el ganador es :"+ premio.getJugador().getNombre()+"\n" +
-                "con un Premio: 1.600.000  $");
+                "con un Premio: "+premio.getResultadoPremio());
     }
 }

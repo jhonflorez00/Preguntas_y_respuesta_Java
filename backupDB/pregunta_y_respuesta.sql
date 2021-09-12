@@ -53,7 +53,7 @@ INSERT INTO `pregunta` (`id`, `pregunta`, `opciones`, `respuesta`, `categoria`) 
 (11, ' En música, ¿A cuántos tiempos equivale una blanca?', '1)dos tiempos,2)tres tiempos,3)cuatro tiempos,4) cinco tiempos', 1, 3),
 (12, '¿Qué tipo de instrumento es un piano?', '1) instrumento de percusión,2) instrumento de cuerdas,3) instrumento de teclas,4)  instrumento de cuerdas largas', 1, 3),
 (13, '¿Qué son los montes Urales?', '1) una montaña ,2) Un sitio de Rusia,3) la frontera entre Europa y Asia,4)  un lugar turístico', 3, 3),
-(14, '¿Cómo se llaman los huesecillos del oído en los cuales el sonido rebota hasta llegar a la cóclea?', '1) Clavícula ,2) martillo, el yunque y el estribo,3) hioides,4)  humero', 2, 3),
+(14, '¿Cómo se llaman los huesecillos del oído en los cuales el sonido rebota hasta llegar a la cóclea?', '1) Clavícula ,2) martillo el yunque y el estribo,3) hioides,4)  humero', 2, 3),
 (15, '¿Cuántos kilos son una tonelada?', '1) 100 kilos ,2) 1000 kilos ,3) 10000 kilos,4)  100 kilos', 2, 3),
 (16, ' ¿Cuál fue el primer país en aprobar el sufragio femenino?', '1) Nueva Zelanda. ,2) Colombia ,3) España,4)  Rusia', 1, 4),
 (17, '¿En qué año llegó el hombre a la Luna?', '1) año 1968 ,2) año 1969.,3) año 1967.,4)  año 1970.', 2, 4),
