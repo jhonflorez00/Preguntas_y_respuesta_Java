@@ -14,7 +14,7 @@ public class MenuPregunta {
         System.out.println("**                                         **");
         System.out.println("*********************************************");
         String pregunt= sc.nextLine();
-        System.out.println("Ingrese su Opciones: 1) opcio1 \\r\\n 2) opcion2 \\r\\n 3) opcion3\\r\\n 3) opcio4");
+        System.out.println("Ingrese su Opciones: 1) opcio1,  2) opcion2,   3) opcion3, 4) opcio4,");
         String opcion=sc.nextLine();
         System.out.println("**  Ingrese el numero de la respuesta 1 ,2,3 o 4  **");
         int respuest=sc.nextInt();

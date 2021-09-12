@@ -57,7 +57,6 @@ public class PreguntaDao {
                     ronda.setPregunta(rs.getString("pregunta"));
                     ronda.setOpciones(rs.getString("opciones"));
                     ronda.setRepuesta(rs.getInt("respuesta"));
-                    ronda.setRepuesta(rs.getInt("respuesta"));
                     ronda.setCategoria(rs.getInt("categoria"));
                     MenuRonda.mostarPregunRamdon(ronda);
                 }

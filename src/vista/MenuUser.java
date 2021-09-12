@@ -1,7 +1,6 @@
 package vista;
 
 import comtrolador.UserService;
-import modelo.User;
 
 import java.util.Scanner;
 

@@ -1,20 +1,15 @@
 package modelo;
 
-public class User {
+public class Jugador {
     private int id;
     private String nombre;
     private int cc;
-    private int acomulado;
 
-
-
-    public User() {
+    public Jugador(String nombre, int cc) {
         this.nombre = nombre;
         this.cc = cc;
-        this.acomulado=acomulado;
 
     }
-
 
 
     public int getId() {
@@ -39,13 +34,6 @@ public class User {
 
     public void setCc(int cc) {
         this.cc = cc;
-    }
-    public int getAcomulado() {
-        return acomulado;
-    }
-
-    public void setAcomulado(int acomulado) {
-        this.acomulado = acomulado;
     }
 
 }

@@ -22,23 +22,28 @@ public class MenuRonda {
         System.out.println("******************************************************");
 
         System.out.println("\n"+ronda.getPregunta()+"");//muestar las preguntas y sus opciones
-        System.out.println(" "+ronda.getOpciones()+"");
+        String[] opciones=ronda.getOpciones().split(",");
+        System.out.println(opciones[0]+"\n"+opciones[1]+"\n"+opciones[2]+"\n"+opciones[3]);
         int respRonda= sc.nextInt();//lee nos la respuesta en respRonda
         int repVerdadera=ronda.getRepuesta();
         int idRonda=ronda.getIdRonda();
         RondaService.ValidarRespuesta(respRonda,repVerdadera,idRonda);
+
     }
     public static void mensajeSiquiereSalirDElJuego(int nexRonda, int premios){
-        Scanner sc=new Scanner(System.in);
-        System.out.println("***********************************************************");
-        System.out.println("**            FELICITACIONES RESPUESTA CORRECTA          **");
-        System.out.println("**                                                       **");
-        System.out.println("**             1) SEGIR JUEGO                            **");
-        System.out.println("**             2) SALIR DEL JUEGO                        **");
-        System.out.println("**                                                       **");
-        System.out.println("***********************************************************");
-        int opcionUser=sc.nextInt();
-        RondaService.ContinuarJuego(opcionUser,nexRonda,premios);
+        if (nexRonda < 6){
+            Scanner sc=new Scanner(System.in);
+            System.out.println("***********************************************************");
+            System.out.println("**            FELICITACIONES RESPUESTA CORRECTA          **");
+            System.out.println("**                                                       **");
+            System.out.println("**             1) SEGIR JUEGO                            **");
+            System.out.println("**             2) SALIR DEL JUEGO                        **");
+            System.out.println("**                                                       **");
+            System.out.println("***********************************************************");
+            int opcionUser=sc.nextInt();
+            RondaService.ContinuarJuego(opcionUser,nexRonda,premios);
+        }
+
     }
 
 }

@@ -1,11 +1,15 @@
 package comtrolador;
 
+import modelo.Premio;
 import vista.Menu;
 import vista.MenuRonda;
 import vista.MenuUser;
+
+import java.util.List;
 import java.util.Scanner;
 
 public class RondaService  {
+
 
     public static void selectCategariaYPregunta(int rondaN, int premio){
 
@@ -15,7 +19,8 @@ public class RondaService  {
 
     public static void ValidarRespuesta(int respRonda, int repVerdadera, int idRonda){
 
-        Scanner sc=new Scanner(System.in);
+        List<Premio>premioLista=PremioDao.premio();
+
         /**con esta validamos  si la respuesta es igual a la traida
          * de la base de datas*/
         if (respRonda==repVerdadera){
@@ -37,6 +42,7 @@ public class RondaService  {
                 case 5:
                     premios=premios*16;
                     System.out.println(" ***********************************************************\n      FELICITACIONES Ganastes el juego \n***********************************************************");
+                    MostrarGanador.mostrarGanador(premioLista);
                     MenuUser.capturaDatosUser(premios);
                     break;
             }
@@ -56,7 +62,7 @@ public class RondaService  {
         }
         else {
             MenuUser.capturaDatosUser(premios);
-            Menu.mostarMenu();
+            System.out.println("Juego finalizado");
         }
     }
 }

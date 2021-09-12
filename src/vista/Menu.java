@@ -39,7 +39,6 @@ public class Menu {
                 default:
                     System.out.println("**          Escoja un numero correcto             **");
                     break;
-
             }
 
         } while (opcion != 4);
