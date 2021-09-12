@@ -14,6 +14,7 @@ las rondas del juego son nivel que van aumentando en la medida que el jugador ga
 Guardamos las preguntas  en una base de datos  ,
 el programa se ejecuta todo por media de la línea de comandos
 Funciones
+* Lenguaje  JAVA
 * crear preguntas*
 
 * Crea sus opciones  que se separan por medio de una ","  1) opción , 2)opción ,3)opción ,4)opción
