@@ -48,22 +48,22 @@ public class PreguntaDao {
 
             //iesntras rs tenga datos
             int contar=1;
+            /**Realiza el recorrido del la consulta SQL y toma la posición
+             * del número aleatorio  y carga los datos a la clase Ronda*/
 
             while (rs.next() ){
-
-
                 if (contar==valorRandon){
-
-                    System.out.println("Pregunta  : "+rs.getString("pregunta"));
-                    System.out.println("Opciones  : "+rs.getString("opciones"));
-                    System.out.println("Respuesta : "+rs.getInt("respuesta"));
-                    System.out.println("Categoria : "+rs.getInt("categoria"));
-                    System.out.println("");
-
+                    System.out.println("            Numero randon:"+valorRandon+"");
+                    Ronda ronda=new Ronda();
+                    ronda.setIdRonda(numeroRonda);
+                    ronda.setPregunta(rs.getString("pregunta"));
+                    ronda.setOpciones(rs.getString("opciones"));
+                    ronda.setRepuesta(rs.getInt("respuesta"));
+                    ronda.setRepuesta(rs.getInt("respuesta"));
+                    ronda.setCategoria(rs.getInt("categoria"));
+                    RondaService.escojerPregunta(ronda);
                 }
-                System.out.println("numero= "+contar+++"== numero rando: "+valorRandon);
-                System.out.println("****************************");
-
+                contar++;
             }
 
         }catch (SQLException e){
