@@ -15,33 +15,33 @@ public class Menu {
             System.out.println("**   CHALLENGE - CONCURSO DE PREGUNTAS Y RESPUESTAS **");
             System.out.println("******************************************************");
 
-            System.out.println("1. Crear Usuario");
-            System.out.println("2. Iniciar juego ");
-            System.out.println("3. Configurar Pregunta");
-            System.out.println("3. Salir ");
+            System.out.println("1) Iniciar juego ");
+            System.out.println("2) Configurar Pregunta");
+            System.out.println("3) Ver Historial de juego");
+            System.out.println("4) Salir ");
             System.out.println("___________________________");
             //leemos la opcion del usuario
             opcion = sc.nextInt();
             switch (opcion) {
                 case 1:
-                    UserService.crearUser();
+                    int ronda1=1;
+                    int premio=0;
+                    RondaService.rondaInicial(ronda1,premio);
                     break;
                 case 2:
-                    RondaService.rondaN();
-
-                    break;
-                case 3:
                     PreguntaService.crearPregunta();
+                case 3:
+                    UserService.verHistoria();
                     break;
                 case 4:
                     break;
-                case 5:
-                    System.out.println("Gracias");
+                default:
+                    System.out.println("Escoja un numero correcto");
                     break;
 
             }
 
-        } while (opcion != 5);
+        } while (opcion != 4);
 
 
     }

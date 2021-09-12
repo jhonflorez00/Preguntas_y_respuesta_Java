@@ -15,6 +15,8 @@ public class User {
 
     }
 
+
+
     public int getId() {
         return id;
     }
@@ -43,9 +45,7 @@ public class User {
     }
 
     public void setAcomulado(int acomulado) {
-        acomulado= acomulado+100;
         this.acomulado = acomulado;
     }
-
 
 }
